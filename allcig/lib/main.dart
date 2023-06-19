@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -282,35 +281,5 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-  // ignore: non_constant_identifier_names
-  itemDashboard(String title, IconData iconData, Color Backgroud) => Container(
-    decoration: BoxDecoration(
-      color: Colors.white,
-      borderRadius: BorderRadius.circular(10),
-      boxShadow: [
-        BoxShadow(
-          offset: const Offset(0, 5),
-          color: Theme.of(context).primaryColor.withOpacity(.2),
-          spreadRadius: 2,
-          blurRadius: 5,
-
-        )
-      ] 
-    ),
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          padding: const EdgeInsets.all(10),
-          decoration: BoxDecoration(
-            color: Backgroud,
-            shape: BoxShape.circle
-          ),
-          child: Icon(iconData, color: Colors.white),
-        ),
-        const SizedBox(height: 8),
-        Text(title, style: Theme.of(context).textTheme.titleMedium,)
-      ],
-    ),
-  );
+ 
 }
