@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'TerraEsferica/TerraEsferica.dart';
 import 'Unidades/Unidades.dart';
 
 
@@ -7,7 +8,7 @@ class Calculadora extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => DefaultTabController(
-        length: 4,
+        length: 3,
         child: Scaffold(
           appBar: AppBar(
             title: const Text('Calculadora CIG'),
@@ -15,7 +16,6 @@ class Calculadora extends StatelessWidget {
             bottom: const TabBar(
               tabs: [
                 Tab(text: 'Unidades'),
-                Tab(text: 'Terra Plana'),
                 Tab(text: 'Terra Esferica'),
                 Tab(text: 'Terra Elipsoidal'),
               ],
@@ -23,7 +23,7 @@ class Calculadora extends StatelessWidget {
           ),
          body: TabBarView(children: [
             Unidades(),
-            Unidades(),
+            TerraEsferica(),
             Unidades(),
             Unidades(),
           ]),
