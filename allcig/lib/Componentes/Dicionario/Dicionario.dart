@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../SearchBar.dart';
+
 class Item {
   String title;
   String content;
+ 
 
   Item({required this.title, required this.content});
 }
@@ -32,14 +35,61 @@ class _DicionarioState extends State<Dicionario> {
     Item(title: 'Triangulação', content: 'Método de levantamento geodésico que envolve a medição de ângulos e distâncias entre pontos para determinar suas coordenadas geodésicas.'),
     Item(title: 'Vetor', content: 'Formato de dados geoespaciais que representa informações como pontos, linhas ou polígonos. É usado para representar objetos geográficos discretos, como estradas, rios, edifícios e áreas.'),
   ];
+  List<Item> filteredItems = [];
+  TextEditingController searchController = TextEditingController();
+  
+  static int  get i => 20;
+  @override
+  void initState() {
+    super.initState();
+    filteredItems = _items;
+  }
+  void searchItems(String searchText) {
+    List<Item> searchResults = [];
 
+    if (searchText.isEmpty) {
+      searchResults = _items;
+    } else {
+      searchResults = _items
+          .where((item) => item.title.toLowerCase().contains(searchText.toLowerCase()))
+          .toList();
+    }
+
+    setState(() {
+      filteredItems = searchResults;
+    });
+  }
+  //estado para expandir um item na lista
+  final int maxItemsToShow = 20;
   final List<bool> _itemExpandedList = List<bool>.generate(20, (index) => false);
-
+  //final List<bool> limitedItemList = _itemExpandedList.sublist(0, 20);
+  //Estado da barra de pesquisa
+  bool isExpanded = false;
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Dicionario'),
+      appBar:  AppBar(
+        title: isExpanded
+          ? TextField(
+            controller: searchController,
+            onChanged: (value) => searchItems(value),
+            decoration: const InputDecoration(
+            hintText: 'Pesquisar...',
+              ),
+            )
+             : const Text('Dicionário'),
+             actions: [
+        IconButton(
+          icon: Icon(isExpanded ? Icons.close : Icons.search),
+          onPressed: () {
+            setState(() {
+              isExpanded = !isExpanded;
+            });
+          },
+        ),
+      ],
+        
       ),
       body: ListView.builder(
         itemCount: _items.length,
@@ -54,9 +104,13 @@ class _DicionarioState extends State<Dicionario> {
             },
             children: [
               ExpansionPanel(
+                
                 headerBuilder: (context, isExpanded) {
+                  
                   return ListTile(
-                    title: Text(_items[index].title),
+                    title: Text(filteredItems[index].title),
+                    //title: Text(_items[index].title),
+                    
                   );
                 },
                 body: ListTile(
