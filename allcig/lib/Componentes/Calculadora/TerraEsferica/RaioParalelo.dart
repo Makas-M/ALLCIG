@@ -114,14 +114,18 @@ class Calculadora extends State<RaioParalelo> {
                     const Text('"'),
                   ],
                 ),
-                
               ),
               const SizedBox(height: 20),
-              Row(
-                children: [
-                  const Text("Raio da Terra"),
-                  TextFormField(
-                    controller: lats,
+             Row(
+                children: <Widget>[
+                  const SizedBox(width: 20),
+                  const Text("Raio da Terra: "),
+                  const SizedBox(width: 20),
+                 SizedBox(
+                      width: 80,
+                      height: 30,
+                      child: TextFormField(
+                        controller: raio,
                         validator: (value) {
                           if (value!.isEmpty) {
                             return "Não pode estar vazio";
@@ -132,11 +136,10 @@ class Calculadora extends State<RaioParalelo> {
                           hintText: "S",
                         ),
                         keyboardType: TextInputType.number,
-                  )
-                ]
-                
+                      ),
+                    ),
+                ] 
               ),
-              
               const Divider(
                 height: 30.0,
               ),

@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 import 'Componentes/Calculadora/Calculadora.dart';
+import 'Componentes/Dicionario/Dicionario.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -126,7 +127,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     onTap: () async {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) => Calculadora(),
+                          builder: (context) => Dicionario(),
                         ),
                       );
                     },
@@ -153,11 +154,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: InkWell(
                     onTap: () async {
               
-                //  Navigator.of(context).push(
-                   // MaterialPageRoute(
-                     // builder: (context) => Calculadora(),
-                   // ),
-               //   );
+                Navigator.of(context).push(
+                   MaterialPageRoute(
+                      builder: (context) => Dicionario(),
+                    ),
+                  );
                 },
                 splashColor: Colors.grey,
                 child: Center(
