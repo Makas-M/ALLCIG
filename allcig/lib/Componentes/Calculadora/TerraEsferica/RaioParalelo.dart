@@ -163,7 +163,7 @@ class Calculadora extends State<RaioParalelo> {
                 width: 300,
                 child: Center(
                   child: Text(
-                    ("Graus Decimais: $saida1"),
+                    ("Raio do Paralelo: $saida1"),
                     style: const TextStyle(
                       fontSize: 16.0,
                     ),

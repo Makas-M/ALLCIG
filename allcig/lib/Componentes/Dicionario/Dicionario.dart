@@ -1,6 +1,7 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
-import '../SearchBar.dart';
 
 class Item {
   String title;
@@ -11,6 +12,8 @@ class Item {
 }
 
 class Dicionario extends StatefulWidget {
+  const Dicionario({super.key});
+
   @override
   _DicionarioState createState() => _DicionarioState();
 }
@@ -38,7 +41,7 @@ class _DicionarioState extends State<Dicionario> {
   List<Item> filteredItems = [];
   TextEditingController searchController = TextEditingController();
   
-  static int  get i => 20;
+  
   @override
   void initState() {
     super.initState();
@@ -59,16 +62,16 @@ class _DicionarioState extends State<Dicionario> {
       filteredItems = searchResults;
     });
   }
-  //estado para expandir um item na lista
-  final int maxItemsToShow = 20;
-  final List<bool> _itemExpandedList = List<bool>.generate(20, (index) => false);
-  //final List<bool> limitedItemList = _itemExpandedList.sublist(0, 20);
+  
+ 
+  final List<bool> _itemExpandedList = List<bool>.generate(17, (index) => false);
+  
   //Estado da barra de pesquisa
   bool isExpanded = false;
   
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(  
       appBar:  AppBar(
         title: isExpanded
           ? TextField(
@@ -104,13 +107,9 @@ class _DicionarioState extends State<Dicionario> {
             },
             children: [
               ExpansionPanel(
-                
                 headerBuilder: (context, isExpanded) {
-                  
                   return ListTile(
                     title: Text(filteredItems[index].title),
-                    //title: Text(_items[index].title),
-                    
                   );
                 },
                 body: ListTile(
