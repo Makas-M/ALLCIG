@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       title: 'AllCIG',
       theme: ThemeData(
         
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.cyan,
       ),
       home: const HomeScreen(),
     );

@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 import 'Componentes/Calculadora/Calculadora.dart';
+import 'Componentes/Coordenadas/Coordenadas.dart';
 import 'Componentes/Dicionario/Dicionario.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -38,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   trailing: const CircleAvatar(
                     radius: 30,
                     //colocar imagem do usuario nesse ponto
-                    backgroundColor: Colors.cyan,
+                    backgroundColor: Colors.blue,
                   ),
                 )
               ],
@@ -51,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
               decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(100)
+                  topLeft: Radius.circular(50)
                 )
               ),
               child:GridView.count(
@@ -74,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         );
                       },
-                      splashColor: Colors.grey,
+                      splashColor: Colors.cyan,
                       child: Center(
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
@@ -215,11 +216,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),  
                   child: InkWell(
                     onTap: () async {
-                //  Navigator.of(context).push(
-                   // MaterialPageRoute(
-                     // builder: (context) => Calculadora(),
-                   // ),
-               //   );
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => Coordenadas(),
+                    ),
+                  );
                 },
                 splashColor: Colors.grey,
                 child: Center(
